@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  
+  app1:
+    image: nginx
+    volumes:
+      - ./index1.html:/usr/share/nginx/html/index.html
+
+  app2:
+    image: nginx
+    volumes:
+      - ./index2.html:/usr/share/nginx/html/index.html
+
+  app3:
+    image: nginx
+    volumes:
+      - ./index3.html:/usr/share/nginx/html/index.html
+
+  loadbalance:
+    image: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 8080:80
